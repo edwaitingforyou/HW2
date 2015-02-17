@@ -227,19 +227,7 @@ int main(int argc, char *argv[])
 		//Here starts collision detection
 		if (xPosition_doge >= 0.93f)//collosion on right hand side
 		{
-			if (yPosition_paddle_1 - 0.15 <= yPosition_doge && yPosition_paddle_1 + 0.15 >= yPosition_doge)//if the paddle hits
-			{
-				xDirection_doge = -1;
-			}
-			else if (yPosition_paddle_1 + 0.15 <= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the top side
-			{
-				yDirection_doge = 1;
-			}
-			else if (yPosition_paddle_1 - 0.15 >= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the bottom side
-			{
-				yDirection_doge = -1;
-			}
-			else//if not hit
+			if (xPosition_doge>=1.00f)//if not hit
 			{
 				if (player2 == 0)
 				{
@@ -256,23 +244,23 @@ int main(int argc, char *argv[])
 				}
 				reset();
 			}
-		}
-
-		if (xPosition_doge <= -0.93f)//collision on left side
-		{
-			if (yPosition_paddle_2 - 0.15 <= yPosition_doge && yPosition_paddle_2 + 0.15 >= yPosition_doge)//if the paddle hits
+			else if (yPosition_paddle_1 - 0.15 <= yPosition_doge && yPosition_paddle_1 + 0.15 >= yPosition_doge && xPosition_doge<=0.95f)//if the paddle hits
 			{
-				xDirection_doge = 1;
+				xDirection_doge = -1;
 			}
-			else if (yPosition_paddle_1 + 0.15 <= yPosition_doge && xPosition_doge <= -0.93f && xPosition_doge >= -1.00f)//if the paddle hits but its the top side
+			else if (yPosition_paddle_1 + 0.15 <= yPosition_doge && yPosition_paddle_1 + 0.16 >= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the top side
 			{
 				yDirection_doge = 1;
 			}
-			else if (yPosition_paddle_1 - 0.15 >= yPosition_doge && xPosition_doge <= -0.93f && xPosition_doge >= -1.00f)//if the paddle hits but its the bottom side
+			else if (yPosition_paddle_1 - 0.15 >= yPosition_doge && yPosition_paddle_1 - 0.16 <= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the bottom side
 			{
 				yDirection_doge = -1;
 			}
-			else//if not hit
+		}
+
+		if (xPosition_doge <= -0.90f)//collision on left side
+		{
+			if (xPosition_doge<=-1.00f)//if not hit
 			{
 				if (player1 == 0)
 				{
@@ -288,6 +276,18 @@ int main(int argc, char *argv[])
 					DrawSpriteWin(p1winTexture, 0, 0);
 				}
 				reset();
+			}
+			else if (yPosition_paddle_2 - 0.15 <= yPosition_doge && yPosition_paddle_2 + 0.15 >= yPosition_doge && xPosition_doge >= -0.93)//if the paddle hits
+			{
+				xDirection_doge = 1;
+			}
+			else if (yPosition_paddle_2 + 0.15 <= yPosition_doge && yPosition_paddle_2 + 0.16 >= yPosition_doge && xPosition_doge <= -0.90f && xPosition_doge >= -0.97f)//if the paddle hits but its the top side
+			{
+				yDirection_doge = 1;
+			}
+			else if (yPosition_paddle_2 - 0.15 >= yPosition_doge && yPosition_paddle_2 - 0.16 <= yPosition_doge && xPosition_doge <= -0.90f && xPosition_doge >= -0.97f)//if the paddle hits but its the bottom side
+			{
+				yDirection_doge = -1;
 			}
 		}
 
