@@ -264,11 +264,11 @@ int main(int argc, char *argv[])
 			{
 				xDirection_doge = 1;
 			}
-			else if (yPosition_paddle_1 + 0.15 <= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the top side
+			else if (yPosition_paddle_1 + 0.15 <= yPosition_doge && xPosition_doge <= -0.93f && xPosition_doge >= -1.00f)//if the paddle hits but its the top side
 			{
 				yDirection_doge = 1;
 			}
-			else if (yPosition_paddle_1 - 0.15 >= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the bottom side
+			else if (yPosition_paddle_1 - 0.15 >= yPosition_doge && xPosition_doge <= -0.93f && xPosition_doge >= -1.00f)//if the paddle hits but its the bottom side
 			{
 				yDirection_doge = -1;
 			}
