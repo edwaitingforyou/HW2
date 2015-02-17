@@ -1,0 +1,15 @@
+CS3113
+HW 2
+Beihong Chen
+
+Controls:
+Right hand side player:
+up: UP
+down: DOWN
+Left hand side player:
+up: LEFT
+down: RIGHT
+Reset after score:
+SPACE
+
+However, there is a bug. One player has to at least do press something on keyboard to move the paddles after scores, if not, the medal is not going to be drawn.

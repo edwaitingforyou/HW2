@@ -1,21 +1,11 @@
-﻿Build started 2015/2/17 16:48:10.
+﻿Build started 2015/2/17 17:17:17.
      1>Project "C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\NYUCodebase\NYUCodebase.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SDL2\include /IC:\SDL2_image\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(86): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(111): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(178): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(189): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(200): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(211): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(308): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(309): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-       Link:
+     1>Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\Debug\NYUCodebase.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib OpenGL32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\Debug\NYUCodebase.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\Debug\NYUCodebase.lib" /MACHINE:X86 Debug\main.obj
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          NYUCodebase.vcxproj -> C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\Debug\NYUCodebase.exe
      1>Done Building Project "C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\NYUCodebase\NYUCodebase.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.09
+Time Elapsed 00:00:00.54

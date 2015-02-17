@@ -108,7 +108,7 @@ void DrawSpriteWin(GLint texture, float x, float y, float rotation = 0.0) {
 	glTranslatef(x, y, 0.0);
 	glRotatef(rotation, 0.0, 0.0, 1.0);
 
-	GLfloat quad[] = { -0.136*2, 0.39*2, -0.136*2, -0.39*2, 0.136*2, -0.39*2, 0.136*2, 0.39*2 };
+	GLfloat quad[] = { -0.27, 0.27, -0.27, -0.27, 0.27, -0.27, 0.27, 0.27 };
 	glVertexPointer(2, GL_FLOAT, 0, quad);
 	glEnableClientState(GL_VERTEX_ARRAY);
 
@@ -158,8 +158,7 @@ int main(int argc, char *argv[])
 
 	GLuint dogeTexture = LoadTexture("Doge.png");
 	GLuint plateTexture = LoadTexture("Plate.png");
-	GLuint p1winTexture = LoadTexture("P1win.png");
-	GLuint p2winTexture = LoadTexture("P2win.png");
+	GLuint medalTexture = LoadTexture("Medal.png");
 
 	
 	SDL_Event event;
@@ -229,20 +228,11 @@ int main(int argc, char *argv[])
 		{
 			if (xPosition_doge>=1.00f)//if not hit
 			{
-				if (player2 == 0)
+				DrawSpriteWin(medalTexture, -0.5, 0);
+				if (event.key.keysym.scancode == SDL_SCANCODE_SPACE)
 				{
-					player2 = 1;
+					reset();
 				}
-				else if (player2 == 1)
-				{
-					player2 = 2;
-				}
-				else if (player2 == 2)//any player owns 3 points win the game
-				{
-					lastFrameTicks = 0.0f;
-					DrawSpriteWin(p2winTexture, 0, 0);
-				}
-				reset();
 			}
 			else if (yPosition_paddle_1 - 0.15 <= yPosition_doge && yPosition_paddle_1 + 0.15 >= yPosition_doge && xPosition_doge<=0.95f)//if the paddle hits
 			{
@@ -262,20 +252,11 @@ int main(int argc, char *argv[])
 		{
 			if (xPosition_doge<=-1.00f)//if not hit
 			{
-				if (player1 == 0)
+				DrawSpriteWin(medalTexture, 0.5, 0);
+				if (event.key.keysym.scancode == SDL_SCANCODE_SPACE)
 				{
-					player1 = 1;
+					reset();
 				}
-				else if (player1 == 1)
-				{
-					player1 = 2;
-				}
-				else if (player1 == 2)//any player owns 3 points wins
-				{
-					lastFrameTicks = 0.0f;
-					DrawSpriteWin(p1winTexture, 0, 0);
-				}
-				reset();
 			}
 			else if (yPosition_paddle_2 - 0.15 <= yPosition_doge && yPosition_paddle_2 + 0.15 >= yPosition_doge && xPosition_doge >= -0.93)//if the paddle hits
 			{
