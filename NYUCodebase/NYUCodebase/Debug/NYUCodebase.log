@@ -1,16 +1,16 @@
-﻿Build started 2015/2/16 13:46:19.
+﻿Build started 2015/2/16 23:36:45.
      1>Project "C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\NYUCodebase\NYUCodebase.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SDL2\include /IC:\SDL2_image\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(85): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
      1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(110): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(170): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(181): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(192): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(203): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(285): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(286): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(175): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(186): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(197): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(208): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(290): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\bchen_000\desktop\cs3113\hw2\nyucodebase\nyucodebase\main.cpp(291): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\Debug\NYUCodebase.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib OpenGL32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\Debug\NYUCodebase.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\Debug\NYUCodebase.lib" /MACHINE:X86 Debug\main.obj
          NYUCodebase.vcxproj -> C:\Users\bchen_000\Desktop\CS3113\HW2\NYUCodebase\Debug\NYUCodebase.exe
@@ -18,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.93
+Time Elapsed 00:00:01.06

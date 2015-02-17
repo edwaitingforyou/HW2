@@ -146,6 +146,11 @@ int main(int argc, char *argv[])
 
 	bool done = false;
 
+	glViewport(0, 0, 800, 600);
+	glMatrixMode(GL_PROJECTION_MATRIX);
+	glOrtho(-1.33, 1.33, -1.0, 1.0, -1.0, 1.0);
+	glMatrixMode(GL_PROJECTION_MATRIX);
+
 
 	GLuint dogeTexture = LoadTexture("Doge.png");
 	GLuint plateTexture = LoadTexture("Plate.png");
