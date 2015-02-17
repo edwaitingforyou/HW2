@@ -12,14 +12,15 @@ float angel = 0.0f;
 float lastFrameTicks = 0.0f;
 float xSpeed = 0.0f;
 float ySpeed = 0.0f;
-float xPosition_doge = 0.0f;
+float xPosition_doge = 0.0f;//the ball is initialized to the orginal point (0,0)
 float yPosition_doge = 0.0f;
-int xDirection_doge = 1;
+int xDirection_doge = 1;//1 means the x value of ball is increasing, -1 means decreasing, same for y values
 int yDirection_doge = 1;
-float yPosition_paddle_1 = 0.0f;
+float yPosition_paddle_1 = 0.0f;//two paddles are initialized to the middle of left and right hand side (1,0),(-1,0)
 float yPosition_paddle_2 = 0.0f;
-int player1 = 0;
+int player1 = 0;//players score
 int player2 = 0;
+
 
 typedef struct {
 	float x;
@@ -123,7 +124,10 @@ void DrawSpriteWin(GLint texture, float x, float y, float rotation = 0.0) {
 }
 
 
-void reset()
+
+
+
+void reset()//the function resets everything back to the beginning of the game whenever one player scores
 {
 	//angel = 0.0f;
 	//lastFrameTicks = 0.0f;
@@ -154,7 +158,6 @@ int main(int argc, char *argv[])
 
 	GLuint dogeTexture = LoadTexture("Doge.png");
 	GLuint plateTexture = LoadTexture("Plate.png");
-
 	GLuint p1winTexture = LoadTexture("P1win.png");
 	GLuint p2winTexture = LoadTexture("P2win.png");
 
@@ -168,9 +171,9 @@ int main(int argc, char *argv[])
 		}
 			if (event.type == SDL_KEYDOWN)
 			{
-				if (event.key.keysym.scancode == SDL_SCANCODE_UP)
+				if (event.key.keysym.scancode == SDL_SCANCODE_UP)//P1 controls
 				{
-					if (yPosition_paddle_1 <= 0.95)
+					if (yPosition_paddle_1 <= 0.92)//prevent the paddle go out of the screen
 					{
 						DrawSpritePaddle(plateTexture, 1.0, yPosition_paddle_1 += 0.00015);
 					}
@@ -181,7 +184,7 @@ int main(int argc, char *argv[])
 				}
 				if (event.key.keysym.scancode == SDL_SCANCODE_DOWN)
 				{
-					if (yPosition_paddle_1 >= -0.95)
+					if (yPosition_paddle_1 >= -0.85)
 					{
 						DrawSpritePaddle(plateTexture, 1.0, yPosition_paddle_1 -= 0.00015);
 					}
@@ -190,9 +193,9 @@ int main(int argc, char *argv[])
 						DrawSpritePaddle(plateTexture, 1.0, yPosition_paddle_1);
 					}
 				}
-				if (event.key.keysym.scancode == SDL_SCANCODE_LEFT)
+				if (event.key.keysym.scancode == SDL_SCANCODE_LEFT)//p2 controlls
 				{
-					if (yPosition_paddle_2 <= 0.95)
+					if (yPosition_paddle_2 <= 0.92)
 					{
 						DrawSpritePaddle(plateTexture, 1.0, yPosition_paddle_2 += 0.00015);
 					}
@@ -203,7 +206,7 @@ int main(int argc, char *argv[])
 				}
 				if (event.key.keysym.scancode == SDL_SCANCODE_RIGHT)
 				{
-					if (yPosition_paddle_2 >= -0.95)
+					if (yPosition_paddle_2 >= -0.85)
 					{
 						DrawSpritePaddle(plateTexture, 1.0, yPosition_paddle_2 -= 0.00015);
 					}
@@ -221,14 +224,22 @@ int main(int argc, char *argv[])
 
 		
 		glClear(GL_COLOR_BUFFER_BIT);
-
-		if (xPosition_doge >= 0.93f)
+		//Here starts collision detection
+		if (xPosition_doge >= 0.93f)//collosion on right hand side
 		{
-			if (yPosition_paddle_1 - 0.15 <= yPosition_doge && yPosition_paddle_1 + 0.15 >= yPosition_doge)
+			if (yPosition_paddle_1 - 0.15 <= yPosition_doge && yPosition_paddle_1 + 0.15 >= yPosition_doge)//if the paddle hits
 			{
 				xDirection_doge = -1;
 			}
-			else
+			else if (yPosition_paddle_1 + 0.15 <= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the top side
+			{
+				yDirection_doge = 1;
+			}
+			else if (yPosition_paddle_1 - 0.15 >= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the bottom side
+			{
+				yDirection_doge = -1;
+			}
+			else//if not hit
 			{
 				if (player2 == 0)
 				{
@@ -238,7 +249,7 @@ int main(int argc, char *argv[])
 				{
 					player2 = 2;
 				}
-				else if (player2 == 2)
+				else if (player2 == 2)//any player owns 3 points win the game
 				{
 					lastFrameTicks = 0.0f;
 					DrawSpriteWin(p2winTexture, 0, 0);
@@ -247,13 +258,21 @@ int main(int argc, char *argv[])
 			}
 		}
 
-		if (xPosition_doge <= -0.93f)
+		if (xPosition_doge <= -0.93f)//collision on left side
 		{
-			if (yPosition_paddle_2 - 0.15 <= yPosition_doge && yPosition_paddle_2 + 0.15 >= yPosition_doge)
+			if (yPosition_paddle_2 - 0.15 <= yPosition_doge && yPosition_paddle_2 + 0.15 >= yPosition_doge)//if the paddle hits
 			{
 				xDirection_doge = 1;
 			}
-			else
+			else if (yPosition_paddle_1 + 0.15 <= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the top side
+			{
+				yDirection_doge = 1;
+			}
+			else if (yPosition_paddle_1 - 0.15 >= yPosition_doge && xPosition_doge >= 0.93f && xPosition_doge <= 1.00f)//if the paddle hits but its the bottom side
+			{
+				yDirection_doge = -1;
+			}
+			else//if not hit
 			{
 				if (player1 == 0)
 				{
@@ -263,7 +282,7 @@ int main(int argc, char *argv[])
 				{
 					player1 = 2;
 				}
-				else if (player1 == 2)
+				else if (player1 == 2)//any player owns 3 points wins
 				{
 					lastFrameTicks = 0.0f;
 					DrawSpriteWin(p1winTexture, 0, 0);
@@ -272,12 +291,12 @@ int main(int argc, char *argv[])
 			}
 		}
 
-		if (yPosition_doge <= -0.95f)
+		if (yPosition_doge <= -0.95f)//collsion on the bottom
 		{
 			yDirection_doge = 1;
 		}
 
-		if (yPosition_doge >= 0.95f)
+		if (yPosition_doge >= 0.95f)//collsion on the top
 		{
 			yDirection_doge = -1;
 		}
@@ -286,10 +305,9 @@ int main(int argc, char *argv[])
 		float elapsed = ticks - lastFrameTicks;
 		lastFrameTicks = ticks;
 		angel += elapsed * 150;
-		
 		xPosition_doge += (xDirection_doge)*elapsed * 0.4;
 		yPosition_doge += (yDirection_doge)*elapsed*0.3;
-		//yPosition_paddle_1 += ySpeed;
+		//speed and rotational speed of the ball
 		
 		DrawSprite(dogeTexture, xPosition_doge, yPosition_doge, angel);
 		DrawSpritePaddle(plateTexture, 1.0, yPosition_paddle_1);
